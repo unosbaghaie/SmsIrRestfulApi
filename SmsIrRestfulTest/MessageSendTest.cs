@@ -87,6 +87,7 @@ namespace SmsIrRestfulTest
             if (string.IsNullOrWhiteSpace(token))
                 throw new Exception($@"{nameof(token) } is null");
             
+
             SentMessageResponseById messageSendResponseById = new MessageSend().GetById(token, 5643981);
 
             if (messageSendResponseById.IsSuccessful)

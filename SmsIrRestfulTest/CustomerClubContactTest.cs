@@ -69,6 +69,7 @@ namespace SmsIrRestfulTest
                 CategoryId = 1
             };
 
+
             //CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Update(token, customerClubContactObject);
 
             //if (customerClubContactResponse == null)
