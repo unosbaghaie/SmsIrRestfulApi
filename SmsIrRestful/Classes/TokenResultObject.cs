@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public class TokenResultObject
+    internal class TokenResultObject
     {
         public string TokenKey { get; set; }
         public bool IsSuccessful { get; set; }

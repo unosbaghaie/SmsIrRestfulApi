@@ -16,11 +16,13 @@ namespace SmsIrRestful
                 TokenRequestObject req = new TokenRequestObject();
                 req.UserApiKey = userApiKey;
                 req.SecretKey = secretKey;
-                var json = req.Serialize();
 
+                var json = req.Serialize();
                 string url = "http://ws.sms.ir/api/Token";
-                var method = "POST";
-                var tokenResult = new HttpHelper().Execute(url, method, json);
+
+                HttpExecuter exec = new HttpPost();
+                var tokenResult = exec.Execute(new HttpObject() { Url = url, Json = json });
+
                 TokenResultObject res = tokenResult.Deserialize<TokenResultObject>();
                 if (res != null && res.IsSuccessful == true)
                 {

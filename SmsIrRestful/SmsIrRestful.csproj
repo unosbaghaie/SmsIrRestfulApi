@@ -46,12 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpHelper.cs" />
+    <Compile Include="Classes\BaseResponseApiModel.cs" />
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="HttpHelpers\HttpObject.cs" />
+    <Compile Include="Classes\MessageSendObject.cs" />
+    <Compile Include="Classes\SentSMSLog2.cs" />
+    <Compile Include="HttpHelpers\HttpExecuter.cs" />
+    <Compile Include="HttpHelpers\HttpGet.cs" />
+    <Compile Include="HttpHelpers\HttpPost.cs" />
+    <Compile Include="HttpHelpers\IHttp.cs" />
+    <Compile Include="MessageSend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
+    <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Token.cs" />
-    <Compile Include="TokenRequestObject.cs" />
-    <Compile Include="TokenResultObject.cs" />
+    <Compile Include="Classes\TokenRequestObject.cs" />
+    <Compile Include="Classes\TokenResultObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

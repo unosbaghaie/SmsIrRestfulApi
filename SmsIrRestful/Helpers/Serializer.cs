@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public static class Serializer
+    internal static class Serializer
     {
         public static string Serialize<T>(this T obj)
         {
