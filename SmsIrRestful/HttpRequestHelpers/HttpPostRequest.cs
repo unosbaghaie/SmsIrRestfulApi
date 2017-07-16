@@ -8,19 +8,27 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    internal class HttpPost  : HttpExecuter
+    public class HttpPostRequest : IHttpRequest
     {
-        public override string Execute(HttpObject http)
+        public string SendRequest(HttpObject httpObject, IDictionary<string, string> parameters)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(http.Url);
+
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(httpObject.Url);
             httpWebRequest.ContentType = "text/json";
             httpWebRequest.Method = EnumHttpMethod.Post.ToString();
+
+            if (parameters != null)
+                foreach (var p in parameters)
+                {
+                    httpWebRequest.Headers.Add(p.Key, p.Value);
+                }
+
 
             string result = null;
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                streamWriter.Write(http.Json);
+                streamWriter.Write(httpObject.Json);
                 streamWriter.Flush();
                 streamWriter.Close();
             }
@@ -42,7 +50,5 @@ namespace SmsIrRestful
 
             return result;
         }
-
-     
     }
 }

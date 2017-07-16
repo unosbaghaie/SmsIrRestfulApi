@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    internal class HttpObject 
+    public class HttpObject 
     {
         public string Url { get; set; }
         public EnumHttpMethod Method { get; set; }

@@ -9,10 +9,42 @@ namespace SmsIrRestful
 {
     public class Token
     {
+        #region [Properties]
+        private static readonly Lazy<IHttpRequest> CachedClient
+           = new Lazy<IHttpRequest>(() => new HttpPostRequest());
+
+        private static readonly Func<IHttpRequest> DefaultFactory
+            = () => CachedClient.Value;
+
+        private static Func<IHttpRequest> _httpClientFactory;
+        private static readonly object HttpRequestFactoryLock = new object();
+
+        internal static Func<IHttpRequest> HttpRequestFactory
+        {
+            get
+            {
+                lock (HttpRequestFactoryLock)
+                {
+                    return _httpClientFactory ?? DefaultFactory;
+                }
+            }
+            set
+            {
+                lock (HttpRequestFactoryLock)
+                {
+                    _httpClientFactory = value;
+                }
+            }
+        } 
+        #endregion
+
+
+
         public string GetToken(string userApiKey, string secretKey)
         {
             try
             {
+
                 TokenRequestObject req = new TokenRequestObject();
                 req.UserApiKey = userApiKey;
                 req.SecretKey = secretKey;
@@ -20,8 +52,12 @@ namespace SmsIrRestful
                 var json = req.Serialize();
                 string url = "http://ws.sms.ir/api/Token";
 
-                HttpExecuter exec = new HttpPost();
-                var tokenResult = exec.Execute(new HttpObject() { Url = url, Json = json });
+                var httpRequest = HttpRequestFactory();
+                var tokenResult =  httpRequest.Execute(new HttpObject() { Url = url, Json = json } , null);
+
+
+              //  HttpExecuter exec = new HttpPost();
+              //  var tokenResult = exec.Execute(new HttpObject() { Url = url, Json = json } , null);
 
                 TokenResultObject res = tokenResult.Deserialize<TokenResultObject>();
                 if (res != null && res.IsSuccessful == true)

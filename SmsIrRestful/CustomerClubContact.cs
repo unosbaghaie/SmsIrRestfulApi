@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    internal interface IHttp
+    public class CustomerClubContact
     {
-        string Execute(HttpObject http);
+
+     
+
+
 
     }
 }

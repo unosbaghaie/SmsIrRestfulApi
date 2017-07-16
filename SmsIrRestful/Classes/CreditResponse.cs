@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-
-    public enum EnumHttpMethod
+    public class CreditResponse : BaseResponseApiModel
     {
-
-        Post,
-        Get,
-        Put
+        public double Credit { get; set; }
     }
-
 }

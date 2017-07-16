@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-
-    public enum EnumHttpMethod
+    public interface IHttpRequest
     {
+        string SendRequest(HttpObject httpObject, IDictionary<string, string> parameters);
 
-        Post,
-        Get,
-        Put
     }
-
 }
