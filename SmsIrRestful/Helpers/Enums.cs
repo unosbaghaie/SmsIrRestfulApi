@@ -9,6 +9,7 @@ namespace SmsIrRestful
 
     internal enum EnumHttpMethod
     {
+
         Post,
         Get
     }
