@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmsIrRestful</name>
+    </assembly>
+    <members>
+        <member name="T:SmsIrRestful.MessageSend">
+            <summary>
+            Provides static methods for send http request <i>post</i>, <i>get</i>
+            <i>put</i> , <i>delete</i> , <i>patch</i> to sms.ir RESTful APIs
+            </summary>
+            <remarks>
+            <para>This class is a wrapper for the <see cref="T:SmsIrRestful.IHttpRequest"/> 
+            interface and its default implementation, <see cref="T:SmsIrRestful.HttpPostRequest"/>
+            class, that was created for the most simple scenarios. Please consider 
+            using the types above in real world applications.</para>
+            </remarks>
+            
+            <seealso cref="T:SmsIrRestful.IHttpRequest"/>
+            <seealso cref="T:SmsIrRestful.HttpPostRequest"/>
+            
+            <threadsafety static="true" instance="false" />
+        </member>
+        <member name="M:SmsIrRestful.MessageSend.Send(System.String,SmsIrRestful.MessageSendObject)">
+            <summary>
+            send messages to one or many mobile numbers . mobile numbers and message count should be the same  
+            </summary>
+            <param name="tokenKey"> see  <see cref="T:SmsIrRestful.MessageSendObject"/> </param>
+            <param name="model"> for every call provide token key </param>
+            <returns><see cref="T:SmsIrRestful.MessageSendResponseObject"/></returns>
+        </member>
+        <member name="M:SmsIrRestful.MessageSend.GetByDate(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            returns rowsPerPage records of requestedPageNumber page, actually it is a pagination 
+            on sent messages by date and page by page 
+            </summary>
+            <param name="tokenKey"> token key </param>
+            <param name="shamsi_FromDate"> like 1396/04/01 </param>
+            <param name="shamsi_ToDate">like 1396/04/31</param>
+            <param name="rowsPerPage">10</param>
+            <param name="requestedPageNumber">1</param>
+            <returns><see cref="T:SmsIrRestful.SentMessageResponseByDate"/></returns>
+        </member>
+        <member name="M:SmsIrRestful.MessageSend.GetById(System.String,System.Int32)">
+            <summary>
+            returns sent message by Id 
+            </summary>
+            <param name="tokenKey"></param>
+            <param name="id"></param>
+            <returns><see cref="T:SmsIrRestful.SentMessageResponseById"/></returns>
+        </member>
+        <member name="M:SmsIrRestful.ReceiveMessage.GetByDate(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            returns rowsPerPage records of requestedPageNumber page of received messages, actually it is a pagination 
+            on received messages by date and page by page 
+            </summary>
+            <param name="tokenKey"> token key </param>
+            <param name="shamsi_FromDate"> like 1396/04/01 </param>
+            <param name="shamsi_ToDate">like 1396/04/31</param>
+            <param name="rowsPerPage">10</param>
+            <param name="requestedPageNumber">1</param>
+            <returns><see cref="T:SmsIrRestful.SentMessageResponseByDate"/></returns>
+        </member>
+        <member name="M:SmsIrRestful.ReceiveMessage.GetById(System.String,System.Int32)">
+            <summary>
+            returns received message by Id 
+            </summary>
+            <param name="tokenKey"></param>
+            <param name="id"></param>
+            <returns><see cref="T:SmsIrRestful.ReceiveMessageResponseById"/></returns>
+        </member>
+        <member name="M:SmsIrRestful.Token.GetToken(System.String,System.String)">
+            <summary>
+            returns token key which is needed for any request to other methods in RESTful APIs
+            </summary>
+            <param name="userApiKey"> the userApiKey which will be generated from UI by user in UserApiKey page</param>
+            <param name="secretKey"> the secretKey which will be provided by user when generating user API key </param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

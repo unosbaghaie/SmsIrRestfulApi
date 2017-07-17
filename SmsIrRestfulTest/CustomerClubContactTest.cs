@@ -29,7 +29,7 @@ namespace SmsIrRestfulTest
                 Prefix = "آقای",
                 FirstName = "یونس ",
                 LastName = "بقائی مقدم",
-                Mobile = "09353429089",
+                Mobile = "09120000001",
                 BirthDay = null,
                 CategoryId = 44
             };
@@ -64,13 +64,13 @@ namespace SmsIrRestfulTest
                 Prefix = "آقای",
                 FirstName = "یونس ",
                 LastName = "بقائی مقدم",
-                Mobile = "09353429089",
+                Mobile = "09120000001",
                 BirthDay = null,
                 CategoryId = 44
             };
 
 
-            CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Update(token, customerClubContactObject);
+            var customerClubContactResponse = new CustomerClubContact().Update(token, customerClubContactObject);
 
             if (customerClubContactResponse == null)
                 throw new Exception($@"{nameof(customerClubContactResponse) } is null");

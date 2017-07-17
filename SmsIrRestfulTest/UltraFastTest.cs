@@ -28,25 +28,25 @@ namespace SmsIrRestfulTest
 
             var ultraFastSend = new UltraFastSend()
             {
-                Mobile = 09353429089,
+                Mobile = 09120000001,
                 TemplateId = 26,
-                ParameterArray = new List<UltraFastParameters>() {
+                ParameterArray = new List<UltraFastParameters>()
+                {
                     new UltraFastParameters()
-                    { Parameter = "VerificationCode" , ParameterValue = "123321"}
+                    {
+                        Parameter = "VerificationCode" , ParameterValue = "123321"
+                    }
                 }.ToArray()
 
             };
 
-            UltraFastSendRespone messageSendResponseObject = new UltraFast().Send(token, ultraFastSend);
-            
-            if (messageSendResponseObject == null)
-                throw new Exception($@"{nameof(messageSendResponseObject) } is null");
+            UltraFastSendRespone ultraFastSendRespone = new UltraFast().Send(token, ultraFastSend);
 
+            if (ultraFastSendRespone == null)
+                throw new Exception($@"{nameof(ultraFastSendRespone) } is null");
 
-
-            if (messageSendResponseObject.IsSuccessful)
+            if (ultraFastSendRespone.IsSuccessful)
             {
-
 
             }
             else
@@ -56,6 +56,6 @@ namespace SmsIrRestfulTest
 
         }
 
-       
+
     }
 }

@@ -35,7 +35,6 @@ namespace SmsIrRestfulTest
             if (receivedMessageResponseByDate.IsSuccessful)
             {
 
-
             }
             else
             {
@@ -45,14 +44,14 @@ namespace SmsIrRestfulTest
         }
 
         [TestMethod]
-        public void GetSentMessageById()
+        public void GetByLastMessageId()
         {
             var token = GetToken();
 
             if (string.IsNullOrWhiteSpace(token))
                 throw new Exception($@"{nameof(token) } is null");
 
-            ReceiveMessageResponseById messageSendResponseById = new ReceiveMessage().GetById(token, 5643981);
+            ReceiveMessageResponseById messageSendResponseById = new ReceiveMessage().GetByLastMessageID(token, 5643981);
 
             if (messageSendResponseById.IsSuccessful)
             {

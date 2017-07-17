@@ -84,7 +84,7 @@ namespace SmsIrRestful
         /// <param name="tokenKey"></param>
         /// <param name="id"></param>
         /// <returns><see cref="ReceiveMessageResponseById "/></returns>
-        public ReceiveMessageResponseById GetById(string tokenKey, int id)
+        public ReceiveMessageResponseById GetByLastMessageID(string tokenKey, int id)
         {
             try
             {

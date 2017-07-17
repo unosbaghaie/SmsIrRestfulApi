@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SmsIrRestful</id>
+    <version>1.0.0</version>
+    <title>SmsIrRestful</title>
+    <authors>Younos Baghaee Moghaddam</authors>
+    <owners>Sms.ir</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sms.ir Restful API assembly </description>
+    <releaseNotes>first release . all methods in Restful API till 2017-17-07 are available in this package.</releaseNotes>
+    <copyright>Copyright 2017 (c) sms.ir Corporation. All rights reserved.</copyright>
+    <tags>sms sms.ir api restful</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\SmsIrRestful.dll" />
+    <file src="bin\Release\SmsIrRestful.xml" />
+  </files>
+</package>

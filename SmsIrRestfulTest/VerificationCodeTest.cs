@@ -29,19 +29,16 @@ namespace SmsIrRestfulTest
             var restVerificationCode = new RestVerificationCode()
             {
                 Code = "1234567890",
-                MobileNumber = "09353429089"
+                MobileNumber = "09120000001"
             };
 
-            RestVerificationCodeRespone messageSendResponseObject = new VerificationCode().Send(token, restVerificationCode);
+            RestVerificationCodeRespone restVerificationCodeRespone = new VerificationCode().Send(token, restVerificationCode);
             
-            if (messageSendResponseObject == null)
-                throw new Exception($@"{nameof(messageSendResponseObject) } is null");
+            if (restVerificationCodeRespone == null)
+                throw new Exception($@"{nameof(restVerificationCodeRespone) } is null");
 
-
-
-            if (messageSendResponseObject.IsSuccessful)
+            if (restVerificationCodeRespone.IsSuccessful)
             {
-
 
             }
             else

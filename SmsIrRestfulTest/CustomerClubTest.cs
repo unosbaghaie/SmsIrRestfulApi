@@ -28,7 +28,7 @@ namespace SmsIrRestfulTest
             var customerClubSend = new CustomerClubSend()
             {
                 Messages = new List<string>() { "تست باشگاه" }.ToArray(),
-                MobileNumbers = new List<string>() { "09353429089" }.ToArray(),
+                MobileNumbers = new List<string>() { "09120000001" }.ToArray(),
                 SendDateTime = null,
                 CanContinueInCaseOfError = false
             };
@@ -101,7 +101,7 @@ namespace SmsIrRestfulTest
                 Prefix = "آقای",
                 FirstName = "یونس ",
                 LastName = "بقائی مقدم",
-                Mobile = "09353429089",
+                Mobile = "09120000001",
                 BirthDay = null,
                 CategoryId = 44,
                 MessageText = " ثبت مشتری و ارسال"
