@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace SmsIrRestfulTest
 {
     [TestClass]
-    public class UnitTest1
+    public class VerificationCodeTest
     {
 
         public string GetToken()
@@ -14,27 +14,32 @@ namespace SmsIrRestfulTest
             string userApikey = TokenInformation.UserApikey;
             string secretKey = TokenInformation.SecretKey;
 
-
             return new Token().GetToken(userApikey, secretKey);
         }
 
 
-
         [TestMethod]
-        public void GetCredit()
+        public void Send()
         {
             var token = GetToken();
 
             if (string.IsNullOrWhiteSpace(token))
                 throw new Exception($@"{nameof(token) } is null");
 
+            var restVerificationCode = new RestVerificationCode()
+            {
+                Code = "1234567890",
+                MobileNumber = "09353429089"
+            };
 
-            CreditResponse credit = new Credit().GetCredit(token);
+            RestVerificationCodeRespone messageSendResponseObject = new VerificationCode().Send(token, restVerificationCode);
+            
+            if (messageSendResponseObject == null)
+                throw new Exception($@"{nameof(messageSendResponseObject) } is null");
 
-            if (credit == null)
-                throw new Exception($@"{nameof(credit) } is null");
 
-            if (credit.IsSuccessful)
+
+            if (messageSendResponseObject.IsSuccessful)
             {
 
 
@@ -43,6 +48,9 @@ namespace SmsIrRestfulTest
             {
 
             }
+
         }
+
+       
     }
 }

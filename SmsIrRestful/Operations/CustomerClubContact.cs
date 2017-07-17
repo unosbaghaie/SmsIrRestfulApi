@@ -84,13 +84,9 @@ namespace SmsIrRestful
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
 
-                 
                 HttpRequestFactory = () => new HttpPutRequest();
                 var httpRequest = HttpRequestFactory();
                 var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = json }, parameters);
-
-                //HttpExecuter exec = new HttpPost();
-                //var rawResponse = exec.Execute(new HttpObject() { Url = url, Json = json }, parameters);
 
                 CustomerClubContactResponse res = rawResponse.Deserialize<CustomerClubContactResponse>();
                 if (res == null)

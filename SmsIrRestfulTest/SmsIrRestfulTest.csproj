@@ -52,7 +52,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="UltraFastTest.cs" />
+    <Compile Include="VerificationCodeTest.cs" />
+    <Compile Include="SmsLineTest.cs" />
     <Compile Include="CreditTest.cs" />
+    <Compile Include="CustomerClubTest.cs" />
+    <Compile Include="ReceivedMessageTest.cs" />
     <Compile Include="MessageSendTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenInformation.cs" />

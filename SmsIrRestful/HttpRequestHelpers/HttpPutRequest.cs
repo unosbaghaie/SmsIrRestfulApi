@@ -14,7 +14,7 @@ namespace SmsIrRestful
         {
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(httpObject.Url);
-            httpWebRequest.ContentType = "text/json";
+            httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = EnumHttpMethod.Put.ToString();
 
             if (parameters != null)

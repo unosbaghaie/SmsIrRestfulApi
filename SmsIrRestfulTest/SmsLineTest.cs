@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace SmsIrRestfulTest
 {
     [TestClass]
-    public class UnitTest1
+    public class SmsLineTest
     {
 
         public string GetToken()
@@ -21,7 +21,7 @@ namespace SmsIrRestfulTest
 
 
         [TestMethod]
-        public void GetCredit()
+        public void GetSmsLine()
         {
             var token = GetToken();
 
@@ -29,7 +29,7 @@ namespace SmsIrRestfulTest
                 throw new Exception($@"{nameof(token) } is null");
 
 
-            CreditResponse credit = new Credit().GetCredit(token);
+            SmsLineNumber credit = new SmsLine().GetSmsLines(token);
 
             if (credit == null)
                 throw new Exception($@"{nameof(credit) } is null");

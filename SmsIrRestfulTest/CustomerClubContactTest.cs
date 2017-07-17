@@ -21,7 +21,7 @@ namespace SmsIrRestfulTest
         {
             var token = GetToken();
 
-            if (!string.IsNullOrWhiteSpace(token))
+            if (string.IsNullOrWhiteSpace(token))
                 throw new Exception($@"{nameof(token) } is null");
 
             var customerClubContactObject = new CustomerClubContactObject()
@@ -31,22 +31,22 @@ namespace SmsIrRestfulTest
                 LastName = "بقائی مقدم",
                 Mobile = "09353429089",
                 BirthDay = null,
-                CategoryId = 1
+                CategoryId = 44
             };
 
-        //    CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Create(token, customerClubContactObject);
+            CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Create(token, customerClubContactObject);
 
-            //if (customerClubContactResponse == null)
-            //    throw new Exception($@"{nameof(customerClubContactResponse) } is null");
+            if (customerClubContactResponse == null)
+                throw new Exception($@"{nameof(customerClubContactResponse) } is null");
 
-            //if (customerClubContactResponse.IsSuccessful)
-            //{
+            if (customerClubContactResponse.IsSuccessful)
+            {
 
-            //}
-            //else
-            //{
+            }
+            else
+            {
 
-            //}
+            }
 
         }
 
@@ -56,7 +56,7 @@ namespace SmsIrRestfulTest
         {
             var token = GetToken();
 
-            if (!string.IsNullOrWhiteSpace(token))
+            if (string.IsNullOrWhiteSpace(token))
                 throw new Exception($@"{nameof(token) } is null");
 
             var customerClubContactObject = new CustomerClubContactObject()
@@ -66,23 +66,23 @@ namespace SmsIrRestfulTest
                 LastName = "بقائی مقدم",
                 Mobile = "09353429089",
                 BirthDay = null,
-                CategoryId = 1
+                CategoryId = 44
             };
 
 
-            //CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Update(token, customerClubContactObject);
+            CustomerClubContactResponse customerClubContactResponse = new CustomerClubContact().Update(token, customerClubContactObject);
 
-            //if (customerClubContactResponse == null)
-            //    throw new Exception($@"{nameof(customerClubContactResponse) } is null");
+            if (customerClubContactResponse == null)
+                throw new Exception($@"{nameof(customerClubContactResponse) } is null");
 
-            //if (customerClubContactResponse.IsSuccessful)
-            //{
+            if (customerClubContactResponse.IsSuccessful)
+            {
 
-            //}
-            //else
-            //{
+            }
+            else
+            {
 
-            //}
+            }
 
         }
 
