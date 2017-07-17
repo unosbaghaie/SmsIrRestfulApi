@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public class CustomerClubContact
+   public  class CustomerClub
     {
-
         #region [Properties]
-
-
         private static Lazy<IHttpRequest> CachedClient = new Lazy<IHttpRequest>(() => new HttpPostRequest());
 
         private static Func<IHttpRequest> DefaultFactory = () => CachedClient.Value;
@@ -41,26 +38,22 @@ namespace SmsIrRestful
         #endregion
 
 
-
-        public CustomerClubContactResponse Create(string tokenKey, CustomerClubContactObject model)
+        
+        public CustomerClubSendResponse Send(string tokenKey, CustomerClubSend model)
         {
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClubContact";
+                string url = "http://ws.sms.ir/api/CustomerClub/Send";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
-
 
                 HttpRequestFactory = () => new HttpPostRequest();
                 var httpRequest = HttpRequestFactory();
                 var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = json }, parameters);
 
-                //HttpExecuter exec = new HttpPost();
-                //var rawResponse = exec.Execute(new HttpObject() { Url = url, Json = json }, parameters);
-
-                CustomerClubContactResponse res = rawResponse.Deserialize<CustomerClubContactResponse>();
+                CustomerClubSendResponse res = rawResponse.Deserialize<CustomerClubSendResponse>();
                 if (res == null)
                     return null;
 
@@ -73,26 +66,48 @@ namespace SmsIrRestful
             return null;
         }
 
-
-        public CustomerClubContactResponse Update(string tokenKey, CustomerClubContactObject model)
+        public CustomerClubSendResponse SendToCategories(string tokenKey, CustomerClubSendToCategories model)
         {
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClubContact";
+                string url = "http://ws.sms.ir/api/CustomerClub/SendToCategories";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
 
-
-                HttpRequestFactory = () => new HttpPutRequest();
+                HttpRequestFactory = () => new HttpPostRequest();
                 var httpRequest = HttpRequestFactory();
                 var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = json }, parameters);
 
-                //HttpExecuter exec = new HttpPost();
-                //var rawResponse = exec.Execute(new HttpObject() { Url = url, Json = json }, parameters);
+                CustomerClubSendResponse res = rawResponse.Deserialize<CustomerClubSendResponse>();
+                if (res == null)
+                    return null;
 
-                CustomerClubContactResponse res = rawResponse.Deserialize<CustomerClubContactResponse>();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        public CustomerClubSendResponse AddContactAndSend(string tokenKey, CustomerClubInsertAndSendMessage[] model)
+        {
+            try
+            {
+                var json = model.Serialize();
+                string url = "http://ws.sms.ir/api/CustomerClub/AddContactAndSend";
+
+                var parameters = new Dictionary<string, string>();
+                parameters.Add("x-sms-ir-secure-token", tokenKey);
+
+                HttpRequestFactory = () => new HttpPostRequest();
+                var httpRequest = HttpRequestFactory();
+                var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = json }, parameters);
+
+                CustomerClubSendResponse res = rawResponse.Deserialize<CustomerClubSendResponse>();
                 if (res == null)
                     return null;
 

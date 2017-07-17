@@ -1,4 +1,20 @@
-﻿using System;
+﻿// This file is part of SmsIrRestful.
+// Copyright © 2017 Younos Baghaee Moghaddam.
+// 
+// SmsIrRestful is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as 
+// published by the Free Software Foundation, either version 3
+// of the License, or any later version.
+// 
+// SmsIrRestful is distributed in the hope that it will be useful
+//for sms.ir customers, but WITHOUT ANY WARRANTY; without even the
+//implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//See the GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public 
+// License along with SmsIrRestful. If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +23,28 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
+
+    /// <summary>
+    /// Provides static methods for send http request <i>post</i>, <i>get</i>
+    /// <i>put</i> , <i>delete</i> , <i>patch</i> to sms.ir RESTful APIs
+    /// </summary>
+    /// <remarks>
+    /// <para>This class is a wrapper for the <see cref="IHttpRequest"/> 
+    /// interface and its default implementation, <see cref="HttpPostRequest"/>
+    /// class, that was created for the most simple scenarios. Please consider 
+    /// using the types above in real world applications.</para>
+    /// </remarks>
+    /// 
+    /// <seealso cref="IHttpRequest"/>
+    /// <seealso cref="HttpPostRequest"/>
+    /// 
+    /// <threadsafety static="true" instance="false" />
     public class MessageSend
     {
 
         #region [Properties]
+
+        
         private static Lazy<IHttpRequest> CachedClient = new Lazy<IHttpRequest>(() => new HttpPostRequest());
 
         private static Func<IHttpRequest> DefaultFactory = () => CachedClient.Value;
@@ -36,9 +70,15 @@ namespace SmsIrRestful
             }
         }
 
+
         #endregion
 
-
+        /// <summary>
+        /// send messages to one or many mobile numbers . mobile numbers and message count should be the same  
+        /// </summary>
+        /// <param name="tokenKey"> see  <see cref="MessageSendObject"/> </param>
+        /// <param name="model"> for every call provide token key </param>
+        /// <returns><see cref="MessageSendResponseObject"/></returns>
         public MessageSendResponseObject Send(string tokenKey, MessageSendObject model)
         {
             try
@@ -69,7 +109,16 @@ namespace SmsIrRestful
             }
             return null;
         }
-
+        /// <summary>
+        /// returns rowsPerPage records of requestedPageNumber page, actually it is a pagination 
+        /// on sent messages by date and page by page 
+        /// </summary>
+        /// <param name="tokenKey"> token key </param>
+        /// <param name="shamsi_FromDate"> like 1396/04/01 </param>
+        /// <param name="shamsi_ToDate">like 1396/04/31</param>
+        /// <param name="rowsPerPage">10</param>
+        /// <param name="requestedPageNumber">1</param>
+        /// <returns><see cref="SentMessageResponseByDate"/></returns>
         public SentMessageResponseByDate GetByDate(string tokenKey, string shamsi_FromDate, string shamsi_ToDate, int rowsPerPage, int requestedPageNumber)
         {
             try
@@ -102,6 +151,12 @@ namespace SmsIrRestful
             return null;
         }
 
+        /// <summary>
+        /// returns sent message by Id 
+        /// </summary>
+        /// <param name="tokenKey"></param>
+        /// <param name="id"></param>
+        /// <returns><see cref="SentMessageResponseById "/></returns>
         public SentMessageResponseById GetById(string tokenKey, int id)
         {
             try

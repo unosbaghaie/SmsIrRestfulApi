@@ -35,11 +35,17 @@ namespace SmsIrRestful
                     _httpClientFactory = value;
                 }
             }
-        } 
+        }
         #endregion
 
 
 
+        /// <summary>
+        /// returns token key which is needed for any request to other methods in RESTful APIs
+        /// </summary>
+        /// <param name="userApiKey"> the userApiKey which will be generated from UI by user in UserApiKey page</param>
+        /// <param name="secretKey"> the secretKey which will be provided by user when generating user API key </param>
+        /// <returns></returns>
         public string GetToken(string userApiKey, string secretKey)
         {
             try
