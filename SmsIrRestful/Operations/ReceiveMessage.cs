@@ -1,4 +1,20 @@
-﻿using System;
+﻿// This file is part of SmsIrRestful.
+// Copyright © 2017 Younos Baghaee Moghaddam.
+// 
+// SmsIrRestful is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as 
+// published by the Free Software Foundation, either version 3
+// of the License, or any later version.
+// 
+// SmsIrRestful is distributed in the hope that it will be useful
+// for sms.ir customers, but WITHOUT ANY WARRANTY; without even the
+// implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public 
+// License along with SmsIrRestful. If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,12 +60,12 @@ namespace SmsIrRestful
         /// returns rowsPerPage records of requestedPageNumber page of received messages, actually it is a pagination 
         /// on received messages by date and page by page 
         /// </summary>
-        /// <param name="tokenKey"> token key </param>
-        /// <param name="shamsi_FromDate"> like 1396/04/01 </param>
-        /// <param name="shamsi_ToDate">like 1396/04/31</param>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="shamsi_FromDate"> like "1396/04/01" </param>
+        /// <param name="shamsi_ToDate">like "1396/04/31"</param>
         /// <param name="rowsPerPage">10</param>
         /// <param name="requestedPageNumber">1</param>
-        /// <returns><see cref="SentMessageResponseByDate"/></returns>
+        /// <returns>returns an object of <see cref="ReceivedMessageResponseByDate"/></returns>
         public ReceivedMessageResponseByDate GetByDate(string tokenKey, string shamsi_FromDate, string shamsi_ToDate, int rowsPerPage, int requestedPageNumber)
         {
             try
@@ -81,9 +97,9 @@ namespace SmsIrRestful
         /// <summary>
         /// returns received message by Id 
         /// </summary>
-        /// <param name="tokenKey"></param>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
         /// <param name="id"></param>
-        /// <returns><see cref="ReceiveMessageResponseById "/></returns>
+        /// <returns>returns an object of <see cref="ReceiveMessageResponseById"/></returns>
         public ReceiveMessageResponseById GetByLastMessageID(string tokenKey, int id)
         {
             try

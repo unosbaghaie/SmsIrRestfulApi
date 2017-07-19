@@ -7,12 +7,13 @@
 // of the License, or any later version.
 // 
 // SmsIrRestful is distributed in the hope that it will be useful
-//for sms.ir customers, but WITHOUT ANY WARRANTY; without even the
-//implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-//See the GNU Lesser General Public License for more details.
+// for sms.ir customers, but WITHOUT ANY WARRANTY; without even the
+// implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+// See the GNU Lesser General Public License for more details.
 // 
 // You should have received a copy of the GNU Lesser General Public 
 // License along with SmsIrRestful. If not, see <http://www.gnu.org/licenses/>.
+
 
 using System;
 using System.Collections;
@@ -76,9 +77,9 @@ namespace SmsIrRestful
         /// <summary>
         /// send messages to one or many mobile numbers . mobile numbers and message count should be the same  
         /// </summary>
-        /// <param name="tokenKey"> see  <see cref="MessageSendObject"/> </param>
-        /// <param name="model"> for every call provide token key </param>
-        /// <returns><see cref="MessageSendResponseObject"/></returns>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="model">is is an object of <see cref="MessageSendObject "/></param>
+        /// <returns>returns an object of <see cref="MessageSendResponseObject"/></returns>
         public MessageSendResponseObject Send(string tokenKey, MessageSendObject model)
         {
             try
@@ -113,12 +114,12 @@ namespace SmsIrRestful
         /// returns rowsPerPage records of requestedPageNumber page, actually it is a pagination 
         /// on sent messages by date and page by page 
         /// </summary>
-        /// <param name="tokenKey"> token key </param>
-        /// <param name="shamsi_FromDate"> like 1396/04/01 </param>
-        /// <param name="shamsi_ToDate">like 1396/04/31</param>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="shamsi_FromDate"> like "1396/04/01" </param>
+        /// <param name="shamsi_ToDate">like "1396/04/31"</param>
         /// <param name="rowsPerPage">10</param>
         /// <param name="requestedPageNumber">1</param>
-        /// <returns><see cref="SentMessageResponseByDate"/></returns>
+        /// <returns>returns an object of <see cref="SentMessageResponseByDate"/></returns>
         public SentMessageResponseByDate GetByDate(string tokenKey, string shamsi_FromDate, string shamsi_ToDate, int rowsPerPage, int requestedPageNumber)
         {
             try
@@ -154,9 +155,9 @@ namespace SmsIrRestful
         /// <summary>
         /// returns sent message by Id 
         /// </summary>
-        /// <param name="tokenKey"></param>
-        /// <param name="id"></param>
-        /// <returns><see cref="SentMessageResponseById "/></returns>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="id"> message id </param>
+        /// <returns>returns an object of <see cref="SentMessageResponseById"/></returns>
         public SentMessageResponseById GetById(string tokenKey, int id)
         {
             try
