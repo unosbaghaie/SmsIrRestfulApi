@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 namespace SmsIrRestful
 {
 
-    public interface IHttpRequest
+    internal interface IHttpRequest
     {
         string SendRequest(HttpObject httpObject, IDictionary<string, string> parameters);
 

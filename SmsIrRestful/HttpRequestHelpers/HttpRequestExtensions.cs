@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public static class HttpRequestExtensions
+    internal static class HttpRequestExtensions
     {
 
         /// <summary>

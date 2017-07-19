@@ -25,7 +25,7 @@ namespace SmsIrRestful
     /// <summary>
     /// parameters which for every http request are needed
     /// </summary>
-    public class HttpObject 
+    internal class HttpObject 
     {
         public string Url { get; set; }
         public EnumHttpMethod Method { get; set; }

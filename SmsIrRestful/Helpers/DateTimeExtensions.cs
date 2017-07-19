@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public static class DateTimeExtensions
+    internal static class DateTimeExtensions
     {
         public static string GetPersianDate(this DateTime? helper)
         {

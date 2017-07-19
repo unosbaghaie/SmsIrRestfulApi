@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-    public class HttpGetRequest : IHttpRequest
+    internal class HttpGetRequest : IHttpRequest
     {
         /// <summary>
         /// Get request 

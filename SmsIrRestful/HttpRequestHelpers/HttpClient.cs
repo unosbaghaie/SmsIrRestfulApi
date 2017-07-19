@@ -25,7 +25,7 @@ namespace SmsIrRestful
     /// <summary>
     /// base class for every class that is http requester
     /// </summary>
-    public abstract class HttpClient : IHttpRequest
+    internal abstract class HttpClient : IHttpRequest
     {
         public string SendRequest(HttpObject httpObject, IDictionary<string, string> parameters)
         {

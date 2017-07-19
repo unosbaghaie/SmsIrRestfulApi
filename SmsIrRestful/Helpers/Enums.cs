@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 namespace SmsIrRestful
 {
 
-    public enum EnumHttpMethod
+    internal enum EnumHttpMethod
     {
 
         Post,
