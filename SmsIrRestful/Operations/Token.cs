@@ -72,8 +72,8 @@ namespace SmsIrRestful
                 req.SecretKey = secretKey;
 
                 var json = req.Serialize();
-                string url = "http://ws.sms.ir/api/Token";
-
+                string url = "http://restfulsms.com/api/Token";
+                //string url = "http://localhost:43698/api/Token";
                 var httpRequest = HttpRequestFactory();
                 var tokenResult =  httpRequest.Execute(new HttpObject() { Url = url, Json = json } , null);
 

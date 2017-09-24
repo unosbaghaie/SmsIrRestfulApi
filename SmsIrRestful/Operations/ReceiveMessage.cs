@@ -70,7 +70,7 @@ namespace SmsIrRestful
         {
             try
             {
-                string url = string.Format("http://ws.sms.ir/api/ReceiveMessage?Shamsi_FromDate={0}&Shamsi_ToDate={1}&RowsPerPage={2}&RequestedPageNumber={3}",
+                string url = string.Format("http://restfulsms.com/api/ReceiveMessage?Shamsi_FromDate={0}&Shamsi_ToDate={1}&RowsPerPage={2}&RequestedPageNumber={3}",
                     shamsi_FromDate, shamsi_ToDate, rowsPerPage, requestedPageNumber);
 
                 var parameters = new Dictionary<string, string>();
@@ -104,7 +104,7 @@ namespace SmsIrRestful
         {
             try
             {
-                string url = string.Format("http://ws.sms.ir/api/ReceiveMessage?id={0}", id);
+                string url = string.Format("http://restfulsms.com/api/ReceiveMessage?id={0}", id);
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);

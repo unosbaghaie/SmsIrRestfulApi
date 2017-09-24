@@ -65,7 +65,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/UltraFastSend";
+                string url = "http://restfulsms.com/api/UltraFastSend";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);

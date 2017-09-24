@@ -63,7 +63,7 @@ namespace SmsIrRestful
             try
             {
               
-                string url = "http://ws.sms.ir/api/credit";
+                string url = "http://restfulsms.com/api/credit";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);

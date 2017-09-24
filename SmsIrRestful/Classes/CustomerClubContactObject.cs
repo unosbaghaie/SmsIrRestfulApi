@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace SmsIrRestful
 {
-  
+
     public class CustomerClubContactObject
     {
         public string Prefix { get; set; }
@@ -43,4 +43,60 @@ namespace SmsIrRestful
     public class CustomerClubContactResponse : BaseResponseApiModel
     {
     }
+
+    public class CustomerClubContactCategoryResponse : BaseResponseApiModel
+    {
+        public ContactsCustomerClubCategory[] ContactsCustomerClubCategories { get; set; }
+    }
+
+    public class ContactsCustomerClubCategory
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public class CustomerClubContactsResponse : BaseResponseApiModel
+    {
+        public float AllPages { get; set; }
+        public float AllRecords { get; set; }
+        public Contactscustomerclubresponsedetail[] ContactsCustomerClubResponseDetails { get; set; }
+    }
+
+    public class Contactscustomerclubresponsedetail
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public long Mobile { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

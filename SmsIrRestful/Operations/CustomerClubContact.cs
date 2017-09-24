@@ -68,7 +68,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClubContact";
+                string url = "http://restfulsms.com/api/CustomerClubContact";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
@@ -106,7 +106,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClubContact";
+                string url = "http://restfulsms.com/api/CustomerClubContact";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
@@ -128,6 +128,90 @@ namespace SmsIrRestful
             return null;
         }
 
+
+
+        public CustomerClubContactCategoryResponse GetCategories(string tokenKey)
+        {
+            try
+            {
+                string url = "http://restfulsms.com/api/CustomerClubContact/GetCategories";
+
+                var parameters = new Dictionary<string, string>();
+                parameters.Add("x-sms-ir-secure-token", tokenKey);
+
+                HttpRequestFactory = () => new HttpGetRequest();
+                var httpRequest = HttpRequestFactory();
+                var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = null}, parameters);
+
+                CustomerClubContactCategoryResponse res = rawResponse.Deserialize<CustomerClubContactCategoryResponse>();
+                if (res == null)
+                    return null;
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return null;
+        }
+
+
+
+
+
+        public CustomerClubContactsResponse GetContactsByCategoryById(string tokenKey, int categoryId , int pageNumber)
+        {
+            try
+            {
+                //var json = model.Serialize();
+                string url = $@"http://restfulsms.com/api/CustomerClubContact/GetContactsByCategoryById?categoryId={categoryId}&pageNumber={pageNumber}";
+
+                var parameters = new Dictionary<string, string>();
+                parameters.Add("x-sms-ir-secure-token", tokenKey);
+
+                HttpRequestFactory = () => new HttpGetRequest();
+                var httpRequest = HttpRequestFactory();
+                var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = null }, parameters);
+
+                CustomerClubContactsResponse res = rawResponse.Deserialize<CustomerClubContactsResponse>();
+                if (res == null)
+                    return null;
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return null;
+        }
+        public CustomerClubContactsResponse GetContacts(string tokenKey, int pageNumber)
+        {
+            try
+            {
+                //var json = model.Serialize();
+                string url = $@"http://restfulsms.com/api/CustomerClubContact/GetContacts?pageNumber={pageNumber}";
+
+                var parameters = new Dictionary<string, string>();
+                parameters.Add("x-sms-ir-secure-token", tokenKey);
+
+                HttpRequestFactory = () => new HttpGetRequest();
+                var httpRequest = HttpRequestFactory();
+                var rawResponse = httpRequest.Execute(new HttpObject() { Url = url, Json = null }, parameters);
+
+                CustomerClubContactsResponse res = rawResponse.Deserialize<CustomerClubContactsResponse>();
+                if (res == null)
+                    return null;
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return null;
+        }
 
 
     }

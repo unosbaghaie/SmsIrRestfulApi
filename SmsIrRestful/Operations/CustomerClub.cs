@@ -65,7 +65,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClub/Send";
+                string url = "http://restfulsms.com/api/CustomerClub/Send";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
@@ -97,7 +97,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClub/SendToCategories";
+                string url = "http://restfulsms.com/api/CustomerClub/SendToCategories";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);
@@ -129,7 +129,7 @@ namespace SmsIrRestful
             try
             {
                 var json = model.Serialize();
-                string url = "http://ws.sms.ir/api/CustomerClub/AddContactAndSend";
+                string url = "http://restfulsms.com/api/CustomerClub/AddContactAndSend";
 
                 var parameters = new Dictionary<string, string>();
                 parameters.Add("x-sms-ir-secure-token", tokenKey);

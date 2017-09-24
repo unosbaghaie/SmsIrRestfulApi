@@ -86,5 +86,87 @@ namespace SmsIrRestfulTest
 
         }
 
+
+
+        [TestMethod]
+        public void GetCategories()
+        {
+            var token = GetToken();
+
+            if (string.IsNullOrWhiteSpace(token))
+                throw new Exception($@"{nameof(token) } is null");
+            
+            var customerClubContactCategoryResponse = new CustomerClubContact().GetCategories(token);
+
+            if (customerClubContactCategoryResponse == null)
+                throw new Exception($@"{nameof(customerClubContactCategoryResponse) } is null");
+
+            if (customerClubContactCategoryResponse.IsSuccessful)
+            {
+
+            }
+            else
+            {
+
+            }
+
+        }
+
+
+
+
+
+        [TestMethod]
+        public void GetContactsByCategoryById()
+        {
+            var token = GetToken();
+
+            if (string.IsNullOrWhiteSpace(token))
+                throw new Exception($@"{nameof(token) } is null");
+
+            
+
+            var customerClubContactResponse = new CustomerClubContact().GetContactsByCategoryById(token, 44 , 1);
+
+            if (customerClubContactResponse == null)
+                throw new Exception($@"{nameof(customerClubContactResponse) } is null");
+
+            if (customerClubContactResponse.IsSuccessful)
+            {
+
+            }
+            else
+            {
+
+            }
+
+        }
+
+
+        [TestMethod]
+        public void GetContacts()
+        {
+            var token = GetToken();
+
+            if (string.IsNullOrWhiteSpace(token))
+                throw new Exception($@"{nameof(token) } is null");
+
+
+
+            var customerClubContactResponse = new CustomerClubContact().GetContacts(token, 1);
+
+            if (customerClubContactResponse == null)
+                throw new Exception($@"{nameof(customerClubContactResponse) } is null");
+
+            if (customerClubContactResponse.IsSuccessful)
+            {
+
+            }
+            else
+            {
+
+            }
+
+        }
     }
 }
