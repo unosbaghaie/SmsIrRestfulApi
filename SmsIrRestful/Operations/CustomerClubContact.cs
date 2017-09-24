@@ -129,7 +129,11 @@ namespace SmsIrRestful
         }
 
 
-
+        /// <summary>
+        /// Get customer club contact Categories
+        /// </summary>
+        /// /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <returns>returns an object of <see cref="CustomerClubContactCategoryResponse"/></returns>
         public CustomerClubContactCategoryResponse GetCategories(string tokenKey)
         {
             try
@@ -159,8 +163,14 @@ namespace SmsIrRestful
 
 
 
-
-        public CustomerClubContactsResponse GetContactsByCategoryById(string tokenKey, int categoryId , int pageNumber)
+        /// <summary>
+        /// GetContacts By CategoryId and pagination
+        /// </summary>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="categoryId"> category Id which is got from GetCategories  </param>
+        /// <param name="pageNumber"> start from 1 . all your contacts count / 10 equals all page numbers </param>
+        /// <returns>returns an object of <see cref="CustomerClubContactsResponse"/></returns>
+        public CustomerClubContactsResponse GetContactsByCategoryId(string tokenKey, int categoryId , int pageNumber)
         {
             try
             {
@@ -186,11 +196,17 @@ namespace SmsIrRestful
             }
             return null;
         }
+
+        /// <summary>
+        /// Get Contacts by pagination
+        /// </summary>
+        /// <param name="tokenKey"> see GetToken method in  <see cref="Token"/> class </param>
+        /// <param name="pageNumber"> start from 1 . all your contacts count / 10 equals all page numbers </param>
+        /// <returns>returns an object of <see cref="CustomerClubContactsResponse"/></returns>
         public CustomerClubContactsResponse GetContacts(string tokenKey, int pageNumber)
         {
             try
             {
-                //var json = model.Serialize();
                 string url = $@"http://restfulsms.com/api/CustomerClubContact/GetContacts?pageNumber={pageNumber}";
 
                 var parameters = new Dictionary<string, string>();

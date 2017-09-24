@@ -126,7 +126,7 @@ namespace SmsIrRestfulTest
 
             
 
-            var customerClubContactResponse = new CustomerClubContact().GetContactsByCategoryById(token, 44 , 1);
+            var customerClubContactResponse = new CustomerClubContact().GetContactsByCategoryId(token, 44 , 1);
 
             if (customerClubContactResponse == null)
                 throw new Exception($@"{nameof(customerClubContactResponse) } is null");
