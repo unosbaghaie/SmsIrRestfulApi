@@ -11,6 +11,7 @@ namespace NetCoreConsoleExample
 
 
 
+
             var token = new Token().GetToken("apiKey", "secretKey");
 
             var restVerificationCode = new RestVerificationCode()
