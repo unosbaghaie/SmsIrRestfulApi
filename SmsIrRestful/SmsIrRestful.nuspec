@@ -13,7 +13,9 @@
     <tags>sms sms.ir api restful</tags>
   </metadata>
   <files>
-    <file src="bin\Release\SmsIrRestful.dll" />
-    <file src="bin\Release\SmsIrRestful.xml" />
+    <file src="bin\Release\SmsIrRestfulNetCore.dll" />
+    <file src="bin\Release\SmsIrRestfulNetCore.pdb" />
+	<file src="bin\Release\SmsIrRestfulNetCore.deps.json" />
+	
   </files>
 </package>
